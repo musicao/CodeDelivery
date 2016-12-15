@@ -4,27 +4,24 @@ namespace CodeDelivery\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use CodeDelivery\Repositories\CategoryRepository;
-use CodeDelivery\Models\Category;
-use CodeDelivery\Validators\CategoryValidator;
+use CodeDelivery\Repositories\CupomRepository;
+use CodeDelivery\Models\Cupom;
+use CodeDelivery\Validators\CupomValidator;
 
 /**
- * Class CategoryRepositoryEloquent
+ * Class CupomRepositoryEloquent
  * @package namespace CodeDelivery\Repositories;
  */
-class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepository
+class CupomRepositoryEloquent extends BaseRepository implements CupomRepository
 {
-	
-	
-	
-	/**
+    /**
      * Specify Model class name
      *
      * @return string
      */
     public function model()
     {
-        return Category::class;
+        return Cupom::class;
     }
 
     

@@ -34,6 +34,12 @@ class OrderRepositoryEloquent extends BaseRepository implements OrderRepository
         $this->pushCriteria(app(RequestCriteria::class));
     }
 	
+	public function lists($column, $key = null)
+	{
+		return $this->model->lists('name','id');
+	}
+	
+	
 	public function getByIdAndDeliveryman($id, $idDeliveryman)
 	{
 		$result = $this->with(['client', 'items', 'cupom'])->findWhere([
