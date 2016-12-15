@@ -46,3 +46,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth.checkrole:admin', 'as'=>'ad
 	Route::post('cupoms/store',['as'=> 'cupoms.store','uses' => 'CupomsController@store']);
 	Route::get('cupoms/destroy/{id}',['as'=> 'cupoms.destroy','uses' => 'CupomsController@destroy']);
 });
+
+Route::group(['prefix' => 'customer','middleware' => 'auth.checkrole:client', 'as' => 'customer.'], function () {
+	
+	Route::get('order', ['as' => 'order.index', 'uses' => 'CheckoutController@index']);
+	Route::get('order/create', ['as' => 'order.create', 'uses' => 'CheckoutController@create']);
+	Route::post('order/store', ['as' => 'order.store', 'uses' => 'CheckoutController@store']);
+	
+});
