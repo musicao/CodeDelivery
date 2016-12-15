@@ -14,7 +14,14 @@ use CodeDelivery\Validators\ProductValidator;
  */
 class ProductRepositoryEloquent extends BaseRepository implements ProductRepository
 {
-    /**
+	
+	
+	public function lists($column, $key = null)
+	{
+		return $this->model->lists('name','id');
+	}
+	
+	/**
      * Specify Model class name
      *
      * @return string
