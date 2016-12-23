@@ -65,13 +65,7 @@ Route::group(['prefix' => 'customer','middleware' => 'auth.checkrole:client', 'a
 	
 	Route::group(['prefix' => 'api', 'middleware' => 'oauth', 'as' => 'api.'], function () {
 		
-		Route::get('teste',function(){
-			return [
-				'id' => 1,
-				'client' => 'israel souza teste',
-				'total' => 10
-			];
-		});
+		Route::get('/authenticated', ['as' => 'authenticated', 'uses' => 'Api\UserController@authenticated']);
 		
 		
 		Route::group(['prefix' => 'client', 'middleware' => 'oauth.checkrole:client', 'as' => 'client.'], function () {
