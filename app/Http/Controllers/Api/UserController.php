@@ -31,8 +31,9 @@ class UserController extends Controller
 	public function authenticated()
 	{
 		$authId = Authorizer::getResourceOwnerId();
-		$client = $this->repository->with('client')->find($authId);
-		
+		$client = $this->repository
+			->skipPresenter(false)
+			->with('client')->find($authId);
 		return $client;
 	}
 	
