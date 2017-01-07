@@ -39,7 +39,8 @@ class OrderRepositoryEloquent extends BaseRepository implements OrderRepository
 		return $this->model->lists('name','id');
 	}
 	
-	
+	protected $skipPresenter = true;
+		
 	public function getByIdAndDeliveryman($id, $idDeliveryman)
 	{
 		$result = $this->with(['client', 'items', 'cupom'])->findWhere([
@@ -59,5 +60,10 @@ class OrderRepositoryEloquent extends BaseRepository implements OrderRepository
 		}
 		
 		return $result;
+	}
+	
+	public function presenter()
+	{
+		return \CodeDelivery\Presenters\OrderPresenter::class;
 	}
 }
