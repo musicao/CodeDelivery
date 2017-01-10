@@ -57,7 +57,7 @@ Route::group(['prefix' => 'customer','middleware' => 'auth.checkrole:client', 'a
 
 
 
-#Route::group(['middleware' => 'cors'], function() {
+Route::group(['middleware' => 'cors'], function() {
 	
 	Route::post('oauth/access_token', function() {
 		return Response::json(Authorizer::issueAccessToken());
@@ -91,4 +91,4 @@ Route::group(['prefix' => 'customer','middleware' => 'auth.checkrole:client', 'a
 		
 	});
 	
-#});
+});
