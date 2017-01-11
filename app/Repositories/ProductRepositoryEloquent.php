@@ -5,8 +5,8 @@ namespace CodeDelivery\Repositories;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use CodeDelivery\Repositories\ProductRepository;
+use CodeDelivery\Presenters\ProductPresenter;
 use CodeDelivery\Models\Product;
-use CodeDelivery\Validators\ProductValidator;
 
 /**
  * Class ProductRepositoryEloquent
@@ -40,4 +40,9 @@ class ProductRepositoryEloquent extends BaseRepository implements ProductReposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+	
+	public function presenter()
+	{
+		return ProductPresenter::class;
+	}
 }
