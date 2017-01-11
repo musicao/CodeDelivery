@@ -46,7 +46,7 @@ angular.module('starter', ['ionic', 'starter.controllers','angular-oauth2'])
                 controller: 'LoginCtrl'
             })
             .state('home', {
-                url: '/',
+                url: '/home/:name',
                 templateUrl: 'templates/home.html',
                 controller: 'HomeCtrl'
             });
